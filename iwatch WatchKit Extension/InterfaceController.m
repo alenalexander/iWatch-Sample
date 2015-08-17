@@ -22,7 +22,7 @@ int x=0;
     
    
     [super awakeWithContext:context];
-    [self.watchlbl setText:@"Hello"];
+    [self.watchlbl setText:@"Hello User"];
 
   
 }
