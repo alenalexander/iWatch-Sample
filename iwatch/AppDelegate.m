@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  iwatch
 //
-//  Created by QAgate iMac4 on 11/03/15.
-//  Copyright (c) 2015 QAgate. All rights reserved.
+//  Created by Alen Alexander on 11/03/15.
+//  Copyright (c) 2015. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -13,12 +13,15 @@
 @end
 
 @implementation AppDelegate
-
+@synthesize viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    return YES;
-}
+    self.viewController=[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+    [self.window setRootViewController:self.viewController];
+    [self.window makeKeyAndVisible];
+    return YES;}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

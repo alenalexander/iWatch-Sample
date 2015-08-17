@@ -2,8 +2,8 @@
 //  ViewController.m
 //  iwatch
 //
-//  Created by QAgate iMac4 on 11/03/15.
-//  Copyright (c) 2015 QAgate. All rights reserved.
+//  Created by Alen Alexander on 11/03/15.
+//  Copyright (c) 2015. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -13,6 +13,8 @@
 @end
 
 @implementation ViewController
+@synthesize iphonelbl,iphonetxtfld;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +24,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)Synchronise_action:(id)sender {
+    
+    self.iphonelbl.text=[iphonetxtfld text];
+    
+    NSUserDefaults *sharedDefaults = [[NSUserDefaults alloc]initWithSuiteName:@"group.qagate.shareddata"];
+    [sharedDefaults setObject:iphonelbl.text forKey:@"userinput"];
+    [sharedDefaults synchronize];
+    
 }
 
 @end
